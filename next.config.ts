@@ -1,7 +1,18 @@
-import type { NextConfig } from "next";
+// module.exports = {
+//   target: "server", // Ensures SSR is enabled
+//   reactStrictMode: true, // Activates React Strict Mode for development
+//   images: {
+//     unoptimized: true, // Disables built-in image optimization
+//   },
+// };
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "export",
+  images: {
+    unoptimized: true, // Required for static export (no Image Optimization API)
+  },
+  trailingSlash: true, // Optional for static export to work well with cPanel
 };
 
-export default nextConfig;
+module.exports = nextConfig;
