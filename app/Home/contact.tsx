@@ -125,7 +125,13 @@ export default function ContactForm() {
                 +(254) 726 755 030
               </p>
               <p className="text-gray-600 dark:text-slate-400 text-start">
+                +(254) 707 888 486
+              </p>
+              <p className="text-gray-600 dark:text-slate-400 text-start">
                 info@jaitahmemorialhealthcareltd.co.ke
+              </p>
+              <p className="text-gray-600 dark:text-slate-400 text-start">
+                jaitahmemorialhealthcareltd@gmail.com
               </p>
             </div>
           </li>
