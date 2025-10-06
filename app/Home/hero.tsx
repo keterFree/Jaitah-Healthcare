@@ -111,7 +111,9 @@ const Hero = () => {
                       transition={{ delay: 0.7 }}
                     >
                       Emergency Contact:{" "}
-                      <span className="md:inline block">+254 726 755 030</span>
+                      <span className="md:inline block">
+                        +254 726 755 030/+254 707 888 486{" "}
+                      </span>
                     </motion.b>
 
                     <motion.b
