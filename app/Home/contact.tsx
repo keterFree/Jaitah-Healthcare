@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
+  // Handle email submission
+import emailjs from "emailjs-com";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -17,6 +19,7 @@ export default function ContactForm() {
     phone: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -24,9 +27,69 @@ export default function ContactForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+const handleEmailSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    // Your EmailJS credentials
+    const SERVICE_ID = "service_x4v34jh";
+    const TEMPLATE_ID = "template_abl01h3";
+    const PUBLIC_KEY = "ECzEE8uCFFdSpveB-";
+
+    // Prepare the parameters to match your EmailJS template
+    const templateParams = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      phone: formData.phone,
+      message: formData.message,
+    };
+
+    // Send email using EmailJS
+    const result = await emailjs.send(
+      SERVICE_ID,
+      TEMPLATE_ID,
+      templateParams,
+      PUBLIC_KEY
+    );
+
+    if (result.status === 200) {
+      alert("✅ Message sent successfully! We’ll get back to you soon.");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } else {
+      throw new Error("Email service responded with an error");
+    }
+  } catch (error) {
+    console.error("❌ Error sending email:", error);
+    alert("Failed to send message. Please try again later.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
+
+  // Handle WhatsApp submission
+  const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+
+    // Format the message for WhatsApp
+    const whatsappMessage = `Hello! I would like to get in touch:\n\nName: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // Create WhatsApp URL (using the phone numbers from your contact info)
+    const whatsappUrl = `https://wa.me/254726755030?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
@@ -66,9 +129,9 @@ export default function ContactForm() {
               />
             </div>
             <p className="md:text-start text-center md:block hidden">
-              We’re here to support your health and well-being. Whether you need
+              We're here to support your health and well-being. Whether you need
               to book an appointment, ask a question, or speak with one of our
-              professionals — don’t hesitate to reach out.
+              professionals — don't hesitate to reach out.
             </p>
           </div>
           {/* Address */}
@@ -163,7 +226,7 @@ export default function ContactForm() {
           </li>
         </ul>
         <div className="md:max-w-1/2 md:mt-10">
-          <form onSubmit={handleSubmit} className="mt-10 md:mt-0 space-y-6">
+          <form className="mt-10 md:mt-0 space-y-6">
             <div className="flex md:flex-row flex-col gap-2 max-w-screen justify-between">
               <input
                 type="text"
@@ -212,8 +275,10 @@ export default function ContactForm() {
             <div className="flex w-full justify-end gap-10">
               {/* Email Button */}
               <button
-                type="submit"
-                className="flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition"
+                type="button"
+                onClick={handleEmailSubmit}
+                disabled={isSubmitting}
+                className="flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition disabled:bg-blue-300 disabled:cursor-not-allowed"
               >
                 {/* Mail Icon */}
                 <svg
@@ -227,13 +292,14 @@ export default function ContactForm() {
                   <path d="M4 4h16v16H4z" stroke="none" />
                   <path d="M22 6l-10 7L2 6" />
                 </svg>
-                Email
+                {isSubmitting ? "Sending..." : "Email"}
               </button>
 
               {/* WhatsApp Button */}
               <button
-                type="submit"
-                className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition"
+                type="button"
+                onClick={handleWhatsAppSubmit}
+                className="flex items-center gap-2 bg-green-500 text-white px-6-py-3 rounded hover:bg-green-600 transition"
               >
                 {/* WhatsApp Icon */}
                 <svg
@@ -249,14 +315,14 @@ export default function ContactForm() {
                     clipRule="evenodd"
                   />
                 </svg>
-                Whatsapp
+                WhatsApp
               </button>
             </div>
           </form>
           <p className="text-start py-10 block md:hidden">
-            We’re here to support your health and well-being. Whether you need
+            We're here to support your health and well-being. Whether you need
             to book an appointment, ask a question, or speak with one of our
-            professionals — don’t hesitate to reach out.
+            professionals — don't hesitate to reach out.
           </p>
         </div>
       </div>
