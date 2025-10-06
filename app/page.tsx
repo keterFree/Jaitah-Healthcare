@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Home from "./pages/Home"; // or wherever your actual Home component lives
+import Home from "./pages/Home";
 
 export default function Page() {
   return (
@@ -12,17 +12,19 @@ export default function Page() {
           name="description"
           content="Jaitah Memorial Healthcare Ltd provides top-notch medical services in Kenya. Open 24/7 for wellness and emergencies."
         />
+        {/* Open Graph */}
         <meta
           property="og:image"
-          content="http://jaitahmemorialhealthcareltd.co.ke/logo-bg.png"
+          content="https://jaitahmemorialhealthcareltd.co.ke/jaitahOriginal-red.png"
         />
         <meta
           property="og:image:alt"
           content="Jaitah Memorial Healthcare Logo"
         />
+        {/* Twitter Card */}
         <meta
           name="twitter:image"
-          content="http://jaitahmemorialhealthcareltd.co.ke/logo-bg.png"
+          content="https://jaitahmemorialhealthcareltd.co.ke/jaitahOriginal-red.png"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -33,7 +35,12 @@ export default function Page() {
           name="twitter:description"
           content="Jaitah Memorial Healthcare Ltd provides top-notch medical services in Kenya. Open 24/7 for wellness and emergencies."
         />
-        <link rel="icon" href="/originalLogo-bg.png" type="image/png" />
+        {/* 🔸 Favicon & App Icons */}
+        <link rel="icon" href="/jaitahOriginal-red.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/jaitahOriginal-red.png" />
+        <link rel="shortcut icon" href="/jaitahOriginal-red.png" />
+        <meta name="theme-color" content="#43c0ffff" />{" "}
+        {/* optional brand color */}
       </Head>
 
       <Home />

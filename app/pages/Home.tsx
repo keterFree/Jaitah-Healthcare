@@ -38,7 +38,7 @@ export default function Home() {
         <meta property="og:type" content="website" />
 
         {/* Favicon (optional) */}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/jaitahOriginal-red.png" />
       </Head>
 
       <div className="flex w-full flex-col items-center justify-center text-center">

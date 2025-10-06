@@ -62,7 +62,7 @@ export default function Footer() {
           <div className="flex flex-col">
             <p className="mr-1 text-gray-800 dark:text-gray-300">Email:</p>
             <a
-              href="mailto:info@jaitahhealthcare.co.ke"
+              href="mailto:info@jaitahmemorialhealthcareltd.co.ke"
               className="text-blue-500 transition-colors duration-300 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
             >
               info@jaitahmemorialhealthcareltd.co.ke
