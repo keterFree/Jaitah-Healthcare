@@ -3,6 +3,13 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Script from "next/script";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Jaitah Memorial Healthcare Ltd | Quality and Compassionate Care",
@@ -57,7 +64,7 @@ export const metadata: Metadata = {
     nocache: false,
   },
 };
-// https://tailwindflex.com/@anonymous/slider
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -89,7 +96,9 @@ export default function RootLayout({
           content="Jaitah Memorial Healthcare Ltd provides top-notch medical services in Kenya. Open 24/7 for wellness and emergencies."
         />
       </head>
-      <body className="bg-gray-100 text-gray-900 min-h-screen flex flex-col justify-between">
+      <body
+        className={`${poppins.className} bg-gray-100 text-gray-900 min-h-screen flex flex-col justify-between`}
+      >
         <Header />
         <main>{children}</main>
         <Footer />

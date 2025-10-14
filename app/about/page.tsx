@@ -3,7 +3,13 @@ import Soon from "../components/underDev";
 import Contact from "../Home/contact";
 import Partners from "../Home/partners";
 import Welcome from "../services/welcome";
+import AccreditationsRecognitions from "./accreditations";
+import CommunityEngagement from "./community";
+import OurHistory from "./history";
+import Introduction from "./intro";
+import LeadershipGovernance from "./leaders";
 import StaffProfileCard from "./management";
+import AdministrativeStructure from "./structure";
 export default function AboutPage() {
   return (
     <>
@@ -12,15 +18,12 @@ export default function AboutPage() {
         subtitle="Compassionate Care and Quality Life"
         content="More on us"
       />
-      <h2 className="text-2xl p-4 md:text-3xl text-center font-semibold text-[#0f4c75] mb-1">Management</h2>
-      <StaffProfileCard
-        name="Jephthah Mangerere"
-        title="Chief Medical Officer"
-        bio="Dedicated Kenya Registered Community Health Nurse.Enthusiastic, self-motivated, reliable, responsible, hardworking.Dedicated to ensuring that professional medical healthcare is given to all the patients under our care."
-        imageUrl="/jeph.jpg"
-        email="jephthah@jaitahmemorialhealthcareltd.co.ke"
-        phone="+254 726 755030"
-      />
+      <Introduction />
+      <OurHistory />
+      <LeadershipGovernance />
+      <AdministrativeStructure />
+      <AccreditationsRecognitions />
+      <CommunityEngagement/>
       <Welcome />
       <Contact />
       <Partners />

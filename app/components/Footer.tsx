@@ -58,6 +58,12 @@ export default function Footer() {
             >
               +(254) 726 755 030
             </a>
+            <a
+              href="tel:+254707888486"
+              className="text-blue-500 transition-colors duration-300 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              +(254) 707 888 486
+            </a>
           </div>
           <div className="flex flex-col">
             <p className="mr-1 text-gray-800 dark:text-gray-300">Email:</p>
