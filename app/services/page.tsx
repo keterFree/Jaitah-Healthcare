@@ -7,6 +7,7 @@ import Why from "./why";
 import Contact from "../Home/contact";
 import Locale from "../Home/location";
 import Partners from "../Home/partners";
+import ServicesOverview from "./overview";
 
 export default function ServicesPage() {
   return (
@@ -26,6 +27,7 @@ export default function ServicesPage() {
       />
       <Welcome />
       <Services />
+      <ServicesOverview />
       <Why />
       <Contact />
       <Partners />
