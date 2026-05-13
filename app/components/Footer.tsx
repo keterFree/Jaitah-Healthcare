@@ -151,12 +151,22 @@ export default function Footer() {
       </div>
       <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t border-sky-600 lg:flex-row dark:border-gray-700">
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          © 2025 Jaitah Memorial Healthcare Ltd. All rights reserved.
-          <br />
-          <a className="text-xs text-blue-400" href="https://ketertitus.info/">
-            developed by ketertitus
-          </a>
-        </p>
+  © 2025 Jaitah Memorial Healthcare Ltd. All rights reserved.
+  <br />
+  <a
+    className="inline-flex items-center gap-2 text-xs text-blue-400"
+    href="https://laamilabs.co.ke/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="https://laamilabs.co.ke/_next/image?url=%2Flaami.png&w=96&q=75"
+      alt="LAAMI LABS Logo"
+      className="w-4 h-4 object-contain"
+    />
+    developed by LAAMI LABS
+  </a>
+</p>
         <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
           <li>
             <a
